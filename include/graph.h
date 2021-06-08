@@ -35,6 +35,21 @@ class Graph {
 
   inline bool IsNeighbor(Vertex u, Vertex v) const;
 
+  // adj_list[i]를 반환하는 함수이다.
+  std::vector<Vertex> NeighborList(size_t i) const{
+    return adj_list[i];
+  }
+
+  // adj_list[i]에서 j번째 vertex를 반환하는 함수이다.
+  Vertex Neighbor(size_t i, size_t j) const{
+    return adj_list[i][j];
+  }
+
+  // adj_list의 크기를 반환하는 함수이다.
+  size_t NeighborSize() const{
+    return adj_list.size();
+  }
+
  private:
   int32_t graph_id_;
 
@@ -49,6 +64,7 @@ class Graph {
 
   std::vector<Label> label_;
   std::vector<Vertex> adj_array_;
+  std::vector<std::vector<Vertex>> adj_list;
 
   Label max_label_;
 };
